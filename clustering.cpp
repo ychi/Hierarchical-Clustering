@@ -97,16 +97,17 @@ class HierachicalTree {
               }
           }									// put the data into the list
 
-          void organise()	{
-			  tmp=0;
-			  int tok = 0;
-			  cout<<"root: "<<root<<endl;
-			  system("pause");
+          void organise() {
+              tmp=0;
+              int tok = 0;
+              cout<<"root: "<<root<<endl;
+              system("pause");
               dfs(root);
-			  tmp = listHead;
-			  while( tmp != NULL) {
-				  tmp->serialNum = tok++;
-				  tmp = tmp->next;
+              tmp = listHead;
+              
+              while( tmp != NULL) {
+              	tmp->serialNum = tok++;
+              	tmp = tmp->next;
 			  }
 			  
           }									//access the protected function
@@ -143,7 +144,7 @@ void HierachicalTree::createTree() {
     TreeNode *temp,*temp2; 
     double sum=0;
     double minimum=MAX_DIMENSION;
-	cout<<"Now in createTree()"<<endl;
+	cout<<"Createing tree"<<endl;
     while(listHead != listRear) {
         temp = listHead->next;
         while(temp != NULL) {
@@ -158,7 +159,7 @@ void HierachicalTree::createTree() {
             }
             temp = temp->next;
         }
-		cout<<"		Comparason between listHead and others completed"<<endl;
+		cout<<"		Comparison between listHead and others completed"<<endl;
         temp = new TreeNode;
         temp->dataNum = listHead->dataNum + goal->dataNum;
         
@@ -287,12 +288,12 @@ int main(void)
 		while(inf.eof()) {
 			axis = atof(str.c_str());
 			if(axis < oldAxis) {					//reach the bottom of file
-                      cout<<axis<<endl;
+                cout<<axis<<endl;
 				if(axis) tempNode->setLegit();
 			}else {
-			tempNode->setLocation(axis, 1);
-			oldAxis = axis;
-             cout<<axis<<endl;
+			    tempNode->setLocation(axis, 1);
+			    oldAxis = axis;
+                cout<<axis<<endl;
 			}
 			inf>>str;
 		}
